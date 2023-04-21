@@ -243,3 +243,12 @@ class AutoGPTPluginTemplate(AbstractSingleton, metaclass=Singleton):
             str: The resulting response.
         """
         pass
+
+class EnvVarInPromptPlugin(AutoGPTPluginTemplate):
+    def __init__(self, env_var_name: str):
+        self.env_var_name = env_var_name
+
+        super().__init__()
+        self._name = "Environment Variable in Prompt Plugin"
+        self._version = "0.1.0"
+        self._description = "This plugin allows you to use environment variables in your prompt."
